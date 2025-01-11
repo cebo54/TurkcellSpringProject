@@ -1,6 +1,7 @@
 package com.turkcell.turkcellspringboot.service;
 
 import com.turkcell.turkcellspringboot.entity.Product;
+import com.turkcell.turkcellspringboot.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,42 +10,35 @@ import java.util.Random;
 
 @Service
 public class ProductServiceImpl implements ProductService{
-    private List<Product> productList;
 
-    public ProductServiceImpl(List<Product> productList) {
-        this.productList=new ArrayList<Product>();
+    private final ProductRepository productRepository;
+
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     @Override
     public Product add(Product product) {
-        Product p1=productList.stream().filter(p ->p.getName().equals(product.getName())).findAny().orElse(null);
-        if(p1!=null){
-            throw new RuntimeException("Product already exists");
-        }
-
-
-        Random random=new Random();
-        product.setId(random.nextInt(10000));
-        productList.add(product);
-        return product;
+        return null;
     }
 
     @Override
     public List<Product> findAll() {
-        return productList;
+        return productRepository.findAll();
     }
 
     @Override
     public Product findById(int id) {
-        return productList.stream()
-                .filter(product -> product.getId()==id)
-                .findFirst()
-                .orElse(null);
+        return null;
     }
 
     @Override
     public void delete(int id) {
-        Product product=findById(id);
-        productList.remove(product);
+
+    }
+
+    @Override
+    public Product update(Product product, int id) {
+        return null;
     }
 }

@@ -33,4 +33,8 @@ public class ProductsController {
     public void deleteProduct(@PathVariable int id) {
         productService.delete(id);
     }
+    @PutMapping("{id}")
+    public Product updateProduct(@RequestBody @Valid Product product, @PathVariable int id) {
+        return productService.update(product,id);
+    }
 }

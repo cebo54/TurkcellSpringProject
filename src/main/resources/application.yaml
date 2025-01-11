@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: TurkcellSpringBoot
+
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/crm"
+    username: postgres
+    password: test
+  jpa:
+    properties:
+      hibarnate:
+        dialect:  org.hibarnate.dialect.PostgreSQLDialect
+    showSql: true
+    hibernate:
+      ddl-auto: create
